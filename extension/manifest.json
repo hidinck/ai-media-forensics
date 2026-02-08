@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "AI Media Forensics",
+  "version": "1.0",
+  "description": "Probabilistic AI-generated media detection.",
+
+  "permissions": ["activeTab", "storage", "scripting"],
+  "host_permissions": ["<all_urls>"],
+
+  "background": {
+    "service_worker": "background/index.js"
+  },
+
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/scan.js"],
+      "css": ["overlays/badge.css"],
+      "all_frames": false
+    }
+  ]
+}
