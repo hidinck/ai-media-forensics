@@ -39,7 +39,7 @@ export default function App() {
     form.append("img", file);
 
     const res = await axios.post(
-      "http://127.0.0.1:8000/analyze-image",
+      "https://ai-media-forensics.onrender.com/analyze-image",
       form,
       { headers: { "Content-Type": "multipart/form-data" } }
     );
