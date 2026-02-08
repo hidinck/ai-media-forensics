@@ -18,11 +18,14 @@ export default function HeatmapViewer({ file }) {
     const form = new FormData();
     form.append("img", file);
 
+    const API = import.meta.env.VITE_API_BASE;
+
     const res = await axios.post(
-      `http://127.0.0.1:8000/heatmap?mode=${selectedMode}`,
-      form,
-      { responseType: "blob" }
+        `${API}/heatmap?mode=${selectedMode}`,
+        form,
+        { responseType: "blob" }
     );
+
 
     setHeatmapUrl(URL.createObjectURL(res.data));
     setLoading(false);
